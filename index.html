@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capacitación - Nociones</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'open-sans';
+            src: url('fonts/Open-Sans/static/OpenSans-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'poppins-bold';
+            src: url('fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'open-sans', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'poppins-bold', sans-serif;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            letter-spacing: -0.5px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        h2,
+        h3,
+        p {
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+
+
+
+        .hero {
+            background-image: url('images/hero-image.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .text-content {
+            margin-top: auto;
+            color: white;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+        }
+
+        .custom-background-1,
+        .custom-background-2,
+        .custom-background-3 {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 20px;
+            height: 550px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .custom-background-1 {
+            background-image: url('images/capacitacion1.jpg');
+        }
+
+        .custom-background-2 {
+            background-image: url('images/capacitacion2.jpg');
+        }
+
+        .custom-background-3 {
+            background-image: url('images/capacitacion3.jpg');
+        }
+
+        .custom-column-1,
+        .custom-column-2 {
+            padding: 20px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .rounded-image-1,
+        .rounded-image-2 {
+            width: 80%;
+            height: auto;
+            aspect-ratio: 1 / 1;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .rounded-image-1 {
+            margin-bottom: 150px;
+        }
+
+        .rounded-image-2 {
+            margin-bottom: 75px;
+        }
+
+        #about .col-6 {
+            padding: 5px;
+        }
+
+
+
+        .cta {
+            background-image: url('images/cta-image.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .contact-info {
+            background-color: #f8f9fa;
+            padding: 50px 0;
+        }
+
+        .contact-info img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+
+        .navbar.fixed-top {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-custom {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .btn-custom:hover {
+            background-color: #555;
+            color: #fff;
+        }
+
+        .img-custom {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .overlay {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+
+        .overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .overlay-text {
+            position: relative;
+            z-index: 2;
+        }
+
+        .section {
+            padding: 5vh 2vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (min-width: 1200px) {
+            .section {
+                padding: 8vh 4vw;
+            }
+        }
+
+        @media (max-width: 1199px) and (min-width: 768px) {
+            .section {
+                padding: 6vh 3vw;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .section {
+                padding: 4vh 2vw;
+            }
+        }
+
+        /* Para pantallas muy pequeñas */
+        @media (max-width: 480px) {
+            .section {
+                padding: 3vh 1.5vw;
+            }
+        }
+
+        /* Estilo para títulos y párrafos */
+        h1,
+        h2,
+        h3 {
+            margin-bottom: 2rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 767px) {
+
+            h1,
+            h2,
+            h3 {
+                margin-bottom: 1rem;
+            }
+
+            p {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Nociones</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Acerca de</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#trainings">Capacitaciones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#courses">Cursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="display-1 text-content">Capacitación</h1>
+            <p class="lead text-content">Cursos y Seminarios de formación intensiva</p>
+        </div>
+    </section>
+
+    <!-- Acerca de Nociones -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h1 class="display-1">Acerca de Nociones</h1>
+            <div class="row align-items-center mt-4">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-6 custom-column-1">
+                            <img src="images/image1.jpg" alt="Imagen 1" class="img-fluid rounded-image-1">
+                        </div>
+                        <div class="col-6 custom-column-2">
+                            <img src="images/image2.jpg" alt="Imagen 2" class="img-fluid rounded-image-2">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <p>Capacitaciones dictadas por profesionales que se desempeñan actualmente en la actividad que
+                        dictan.</p>
+                    <p>Pequeños grupos, para optimizar el resultado y brindar a cada estudiante la máxima
+                        atención.</p>
+                    <p>Dirigido por personas con amplia experiencia y dedicadas a la atención del estudiante y la
+                        calidad de la capacitación.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nuestras capacitaciones en Comercio Internacional -->
+    <section id="trainings" class="py-5 bg-light">
+        <div class="container">
+            <h1 class="display-1">Nuestras capacitaciones en Comercio Internacional</h1>
+            <div class="row text-center mt-4">
+                <div class="col-md-4 custom-background-1">
+                    <div class="text-content">
+                        <h3>SIM</h3>
+                        <p>Curso Sistema informático María - Despachante de Aduana. Modalidad virtual.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 custom-background-2">
+                    <div class="text-content">
+                        <h3>Clasificación Arancelaria</h3>
+                        <p>Curso Intensivo de Clasificación Arancelaria. Modalidad virtual.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 custom-background-3">
+                    <div class="text-content">
+                        <h3>Idiomas</h3>
+                        <p>Cursos de Idioma Portugués e Inglés, orientados al Comercio Internacional.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Nuestros próximos cursos -->
+    <section id="courses" class="py-5">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-4">
+                    <h1 class="display-1">Nuestros próximos cursos</h1>
+                </div>
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                    <h4>Curso SIM</h4>
+                    <p>Operatividad del sistema, conceptos fundamentales.</p>
+                    <p>Módulos de Declaración detallada, del ítem, del Manifiesto, del Presupuesto y Operaciones que
+                        complementan la declaración</p>
+                    <h4>Curso de Clasificación Arancelaria</h4>
+                    <p>Tópicos:</p>
+                    <p>Sistema Armonizado (SADCM), Nomenclatura Común del Mercosur</p>
+                    <p>Definiciones, objetivos y funciones
+                        Reglas y Notas - Marco Normativo
+                        Ejercitación</p>
+                    <h4>Idiomas para el Comercio Internacional</h4>
+                    <p>Inglés o Portugués para empresas o estudiantes individuales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Llamada a la acción -->
+    <section class="cta">
+        <div class="container">
+            <h1 class="display-4 text-content">Crece en el mundo laboral con nuestras capacitaciones.</h2>
+        </div>
+    </section>
+
+    <!-- Ponernos en contacto -->
+    <section id="contact">
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h1 class="display-1">Ponernos en contacto</h1>
+                    <p>Escríbenos para solicitar más información sobre las capacitaciones.</p>
+                    <h4>Correo postal</h4>
+                    <p>Lima 1313° A - CABA</p>
+                    <h4>Mail</h4>
+                    <p>info@nociones.com.ar</p>
+                    <h4>Whatsapp</h4>
+                    <p>(011) 7105 9999</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-6 custom-column-2">
+                            <img src="images/contact-person1.jpg" alt="Imagen 1" 
+                            class="img-fluid rounded-image-2">
+                        </div>
+                        <div class="col-6 custom-column-1">
+                            <img src="images/contact-person2.jpg" alt="Imagen 2" 
+                            class="img-fluid rounded-image-1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
