@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capacitación - Nociones</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <style>
         @font-face {
             font-family: 'open-sans';
@@ -70,6 +71,36 @@
             align-items: center;
             color: white;
             text-align: center;
+        }
+
+        .hero {
+            position: relative;
+            background-image: url('images/hero-image.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
         }
 
         .text-content {
@@ -237,14 +268,12 @@
             }
         }
 
-        /* Para pantallas muy pequeñas */
         @media (max-width: 480px) {
             .section {
                 padding: 3vh 1.5vw;
             }
         }
 
-        /* Estilo para títulos y párrafos */
         h1,
         h2,
         h3 {
@@ -300,7 +329,7 @@
     <section class="hero">
         <div class="container">
             <h1 class="display-1 text-content">Capacitación</h1>
-            <p class="lead text-content">Cursos y Seminarios de formación intensiva</p>
+            <h3 class="text-content text-warning"><i>Cursos y Seminarios de formación intensiva</i></h3>
         </div>
     </section>
 
@@ -336,22 +365,29 @@
         <div class="container">
             <h1 class="display-1">Nuestras capacitaciones en Comercio Internacional</h1>
             <div class="row text-center mt-4">
-                <div class="col-md-4 custom-background-1">
-                    <div class="text-content">
-                        <h3>SIM</h3>
-                        <p>Curso Sistema informático María - Despachante de Aduana. Modalidad virtual.</p>
+                <div class="col-md-4 custom-background-1 ">
+                    <div class="overlay">
+                        <h3 class="text-content overlay-text">SIM</h3>
+                        <p class=" overlay-text">SISTEMA INFORMÁTICO MARIA<br>
+                            Prácticas en SIM<br>
+                            Módulo de Capacitación para Despachante de Aduana
+                        </p>
                     </div>
                 </div>
                 <div class="col-md-4 custom-background-2">
-                    <div class="text-content">
-                        <h3>Clasificación Arancelaria</h3>
-                        <p>Curso Intensivo de Clasificación Arancelaria. Modalidad virtual.</p>
+                    <div class="overlay">
+                        <h3 class="text-content overlay-text">Clasificación Arancelaria</h3>
+                        <br>
+                        <p class="overlay-text">Curso Intensivo de Clasificación Arancelaria. <br>
+                            Modalidad virtual.</p>
                     </div>
                 </div>
                 <div class="col-md-4 custom-background-3">
-                    <div class="text-content">
-                        <h3>Idiomas</h3>
-                        <p>Cursos de Idioma Portugués e Inglés, orientados al Comercio Internacional.</p>
+                    <div class="overlay">
+                        <h3 class="text-content overlay-text">Idiomas</h3>
+                        <br>
+                        <p class="overlay-text">Cursos de Idioma Portugués e Inglés, orientados al Comercio
+                            Internacional.</p>
                     </div>
                 </div>
             </div>
@@ -371,9 +407,10 @@
                 </div>
                 <div class="col-md-4">
                     <h4>Curso SIM</h4>
-                    <p>Operatividad del sistema, conceptos fundamentales.</p>
-                    <p>Módulos de Declaración detallada, del ítem, del Manifiesto, del Presupuesto y Operaciones que
-                        complementan la declaración</p>
+                    <p>Operatividad y utilidades del SIM.</p>
+                    <p>Declaración de Importacón/Exportación.</p>
+                    <p>Prácticas en el Módulo de Capacitación.</p>
+                    <p>Sistema Informático Malvina.</p>
                     <h4>Curso de Clasificación Arancelaria</h4>
                     <p>Tópicos:</p>
                     <p>Sistema Armonizado (SADCM), Nomenclatura Común del Mercosur</p>
@@ -401,22 +438,35 @@
                 <div class="col-md-6">
                     <h1 class="display-1">Ponernos en contacto</h1>
                     <p>Escríbenos para solicitar más información sobre las capacitaciones.</p>
-                    <h4>Correo postal</h4>
-                    <p>Lima 1313° A - CABA</p>
-                    <h4>Mail</h4>
-                    <p>info@nociones.com.ar</p>
-                    <h4>Whatsapp</h4>
-                    <p>(011) 7105 9999</p>
+
+
+                    <h4><i class="bi bi-map" style="color: #0d6efd; margin-right: 8px;"></i> Dirección</h4>
+                    <p>
+                        <a href="https://maps.app.goo.gl/wfmVnZgkqbQW7Xae6" target="_blank">
+                            Lima 131 3° A - CABA
+                        </a>
+                    </p>
+                    <h4><i class="bi bi-envelope" style="color: #0d6efd; margin-right: 8px;"></i> Mail</h4>
+                    <p>
+                        <a href="mailto:info@nociones.com.ar">
+                            info@nociones.com.ar
+                        </a>
+                    </p>
+                    <h4><i class="bi bi-whatsapp" style="color: #25D366; margin-right: 8px;"></i> Whatsapp</h4>
+                    <p>
+                        <a href="https://wa.me/541157427777?text=Hola%20quisiera%20más%20información%20sobre%20las%20capacitaciones"
+                            target="_blank">
+                            (011) 5742 7777
+                        </a>
+                    </p>
                 </div>
                 <div class="col-md-6">
                     <div class="row">
                         <div class="col-6 custom-column-2">
-                            <img src="images/contact-person1.jpg" alt="Imagen 1" 
-                            class="img-fluid rounded-image-2">
+                            <img src="images/contact-person1.jpg" alt="Imagen 1" class="img-fluid rounded-image-2">
                         </div>
                         <div class="col-6 custom-column-1">
-                            <img src="images/contact-person2.jpg" alt="Imagen 2" 
-                            class="img-fluid rounded-image-1">
+                            <img src="images/contact-person2.jpg" alt="Imagen 2" class="img-fluid rounded-image-1">
                         </div>
                     </div>
                 </div>
