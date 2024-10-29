@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3  # Actualizado a la versión 3
 
     - name: Set up SSH
       env:
@@ -23,6 +23,10 @@ jobs:
         echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan -H "$SSH_HOST" >> ~/.ssh/known_hosts
+
+    - name: Clean destination directory on server
+      run: |
+        ssh -i ~/.ssh/id_rsa "$SSH_USER@$SSH_HOST" "rm -rf /nociones.com.ar/public/*"  # Limpia la carpeta de destino
 
     - name: Deploy files to LatinCloud
       run: |
