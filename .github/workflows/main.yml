@@ -35,7 +35,7 @@ jobs:
 
     
     - name: Clean destination directory on server      
-      run: ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 "$SSH_USER@$SSH_HOST" "rm -rf '/nociones.com.ar/nociones.com.ar/public/*'"
+      run: ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 "$SSH_USER@$SSH_HOST" "rm -rf '/nociones.com.ar/public/*'"
     
     - name: Deploy files to LatinCloud      
-      run: rsync -avz -e "ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519" ./ "$SSH_USER@$SSH_HOST:/www/nociones.com.ar/nociones.com.ar/public"
+      run: rsync -avz -e "ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519" ./ "$SSH_USER@$SSH_HOST:/nociones.com.ar/public"
