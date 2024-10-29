@@ -23,7 +23,16 @@ jobs:
         ssh-keyscan -H "$SSH_HOST" >> ~/.ssh/known_hosts    
     
     - name: Test SSH connection      
-      run: ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 "$SSH_USER@$SSH_HOST" "ls -la"
+      run: |
+        echo "Connecting to $SSH_USER@$SSH_HOST"
+        ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 "$SSH_USER@$SSH_HOST" "ls -la"
+    
+    - name: Test SSH connection
+      run: ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 nociones@ssh.latincloud.app "ls -la"
+
+    - name: Test SSH connection
+      run: ssh -vvv -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 "$SSH_USER@$SSH_HOST" "ls -la"
+
     
     - name: Clean destination directory on server      
       run: ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 "$SSH_USER@$SSH_HOST" "rm -rf '/nociones.com.ar/nociones.com.ar/public/*'"
