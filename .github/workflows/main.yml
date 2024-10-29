@@ -26,7 +26,7 @@ jobs:
 
     - name: Clean destination directory on server
       run: |
-        ssh -i ~/.ssh/id_rsa "$SSH_USER@$SSH_HOST" "rm -rf '/www/nociones.com.ar/nociones.com.ar/public/*'"
+        ssh -i ~/.ssh/id_rsa "$SSH_USER@$SSH_HOST" "rm -rf '/nociones.com.ar/nociones.com.ar/public/*'"
 
     - name: Deploy files to LatinCloud
       run: |
