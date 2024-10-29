@@ -1,33 +1,31 @@
 name: Deploy to LatinCloud
-
-on:
-  push:
-    branches:
+on: 
+  push: 
+    branches: 
       - main
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout code
+jobs:  
+  deploy:    
+    runs-on: ubuntu-latest    
+    steps:    
+    - name: Checkout code      
       uses: actions/checkout@v3  # Actualizado a la versión 3
 
-    - name: Set up SSH
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        SSH_USER: ${{ secrets.SSH_USER }}
-        SSH_HOST: ${{ secrets.SSH_HOST }}
-      run: |
-        mkdir -p ~/.ssh
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan -H "$SSH_HOST" >> ~/.ssh/known_hosts
-
-    - name: Clean destination directory on server
-      run: |
-        ssh -i ~/.ssh/id_ed25519  "$SSH_USER@$SSH_HOST" "rm -rf '/nociones.com.ar/nociones.com.ar/public/*'"
-
-    - name: Deploy files to LatinCloud
-      run: |
-        rsync -avz -e "ssh -i ~/.ssh/id_ed25519 " ./ "$SSH_USER@$SSH_HOST:/www/nociones.com.ar/nociones.com.ar/public" 
+    - name: Set up SSH      
+      env:        
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}        
+        SSH_USER: ${{ secrets.SSH_USER }}        
+        SSH_HOST: ${{ secrets.SSH_HOST }}      
+      run: |        
+        mkdir -p ~/.ssh        
+        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519        
+        chmod 600 ~/.ssh/id_ed25519        
+        ssh-keyscan -H "$SSH_HOST" >> ~/.ssh/known_hosts    
+    
+    - name: Clean destination directory on server      
+      run: |        
+        ssh -i ~/.ssh/id_ed25519 "$SSH_USER@$SSH_HOST" "rm -rf '/nociones.com.ar/nociones.com.ar/public/*'"    
+    
+    - name: Deploy files to LatinCloud      
+      run: |        
+        rsync -avz -e "ssh -i ~/.ssh/id_ed25519" ./ "$SSH_USER@$SSH_HOST:/www/nociones.com.ar/nociones.com.ar/public"
