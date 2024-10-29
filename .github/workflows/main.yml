@@ -26,4 +26,4 @@ jobs:
 
     - name: Deploy files to LatinCloud
       run: |
-        rsync -avz -e "ssh -i ~/.ssh/id_rsa" ./ "$SSH_USER@$SSH_HOST:/www/nociones.com.ar/nociones.com.ar/public"
+        rsync -avz -e "ssh -i ~/.ssh/id_rsa" ./ "$SSH_USER@$SSH_HOST:/nociones.com.ar/public"
